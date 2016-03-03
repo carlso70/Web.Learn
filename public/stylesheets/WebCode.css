@@ -36,6 +36,14 @@ body {
     margin: 2.5px 12.5px 5px 5px;
 }
 
+#runButton {
+    float: right;
+}
+
+#saveButton {
+    float: left;
+}
+
 #languages{
     width: 199.5px;
     margin: auto;
@@ -86,6 +94,7 @@ iframe{
     height: 100%;
     width: 100%;
     border: 1px 0 0 1px;
+    box-sizing: border-box;
     position: relative;
 }
 
