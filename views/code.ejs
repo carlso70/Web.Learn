@@ -2,12 +2,11 @@
 <html>
 <head>
     <title>Web.Code</title>
-
     <meta charset="utf-8"/>
-
     <meta http-equiv="Content-type" content="text/html; charset=utf-"/>
-
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <script type="text/javascript" src="/javascripts/webCodeJquery.js"></script>
 
     <script type="text/javascript" src ="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
@@ -58,58 +57,5 @@
     <iframe id="resultFrame"></iframe>
 </div>
 
-
-<script>
-
-    var windowHeight = $(window).height();
-    var menuBarHeight = $("#menuBar").height();
-    var codeContainerHeight = windowHeight - menuBarHeight;
-
-    $("#logo").click(function() {
-        window.open("WebLearn.html");
-        //window.close();
-    });
-
-    $(".codeContainer").height(codeContainerHeight + "px");
-
-    $(".toggle").click(function() {
-        $(this).toggleClass("selected");
-
-        var activeDiv = $(this).html();
-
-        $("#"+activeDiv+"Container").toggle();
-
-        var activeDivs = $(".codeContainer").filter(function() {
-
-            return($(this).css("display")!="none");//returns true if this div is showing
-
-        }).length //sets the function to the length of the array filer creates;
-
-        var width = 100/activeDivs;
-
-        $(".codeContainer").width(width+"%");
-
-    });
-
-    $("#saveButton").click(function() {
-        alert("clicked");
-        var css = $("#cssCode").val();
-        var html = $("#htmlCode").val();
-        var js =  $("#jsCode").val();
-        saveTextAsFile(html, css, js);
-    });
-
-    $("#runButton").click(function() {
-        var css = $("#cssCode").val();
-        var html = $("#htmlCode").val();
-        $("iframe").contents().find("html").html("<style>" + css +"</style>" + "<html>" + html +"</html>");
-
-        document.getElementById("resultFrame").contentWindow.eval($("#jsCode").val());
-        //eval($("#jsCode").val());
-
-    });
-
-
-</script>
 </body>
 </html>
